@@ -1,3 +1,3 @@
 # Blog
 
-angular로 블로그 만들어보기
+Web Component 기능을 활용해 바닐라 js로 블로그만들기
