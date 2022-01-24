@@ -1,16 +1,16 @@
-class CustomInput extends HTMLElement {
-  connectedCallback() {
-    const label = document.createElement('label');
-    const input = document.createElement('input');
+class Greeting extends HTMLElement {
+  // 'name' 이라는 속성의 변화를 감시한다.
+  static get observedAttributes() {
+    return ['name'];
+  }
 
-    input.id = 'input-name';
-
-    label.textContent = '이름을 입력하세요';
-    label.setAttribute('for', 'input-name');
-
-    this.appendChild(label);
-    this.appendChild(input);
+  // 속성의 변화에 반응한다.
+  attributeChangedCallback(attr, oldValue, newValue) {
+    if (attr == 'name') {
+      this.textContent = `Hello, ${newValue}`;
+    }
   }
 }
 
-customElements.define('custom-input', CustomInput);
+// 새로운 엘리멘트들 정의한다.
+customElements.define('greeting-element', Greeting);
